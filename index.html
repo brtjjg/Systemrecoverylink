@@ -111,13 +111,11 @@
   .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
   .btn-primary { background: var(--yellow); color: #000; border: none; padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; }
   .btn-primary:hover { opacity: 0.9; }
-  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; }
-  .btn-secondary:hover { background: var(--border); }
-
+  
   .support-link { display: block; text-align: center; font-size: 13px; color: var(--text-muted); text-decoration: none; margin-top: 16px; }
   .support-link:hover { color: var(--yellow); }
 
-  /* --- TOTAL SHUTDOWN SCREEN (Hidden by default) --- */
+  /* --- TOTAL SHUTDOWN SCREEN --- */
   .shutdown-screen {
     display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background: #000; z-index: 9999; flex-direction: column;
@@ -141,7 +139,7 @@
 </head>
 <body>
 
-<!-- MAIN PORTAL (Visible until countdown ends) -->
+<!-- MAIN PORTAL -->
 <div class="portal-container" id="mainPortal">
   
   <header class="header">
@@ -154,21 +152,15 @@
       </div>
     </div>
     <div class="status-pills">
-      <div class="pill pending">
-        <span class="dot"></span> Payment Pending
-      </div>
-      <div class="pill active">
-        <span class="dot"></span> Service Active
-      </div>
+      <div class="pill pending"><span class="dot"></span> Payment Pending</div>
+      <div class="pill active"><span class="dot"></span> Service Active</div>
     </div>
   </header>
 
   <div class="grid-layout">
-    
     <div class="left-col">
       <div class="card">
         <h2 class="card-title">Invoice Details</h2>
-        
         <div class="invoice-header-row">
           <div>
             <span class="label">Invoice No</span>
@@ -215,26 +207,13 @@
     </div>
 
     <div class="right-col">
-      
       <div class="countdown-card" id="countdownCard">
         <div class="countdown-title" id="countdownTitle">Payment Window Closes In</div>
         <div class="countdown-timer">
-          <div class="time-block">
-            <div class="time-val" id="days">00</div>
-            <div class="time-lbl">Days</div>
-          </div>
-          <div class="time-block">
-            <div class="time-val" id="hours">00</div>
-            <div class="time-lbl">Hours</div>
-          </div>
-          <div class="time-block">
-            <div class="time-val" id="mins">00</div>
-            <div class="time-lbl">Mins</div>
-          </div>
-          <div class="time-block">
-            <div class="time-val" id="secs">00</div>
-            <div class="time-lbl">Secs</div>
-          </div>
+          <div class="time-block"><div class="time-val" id="days">00</div><div class="time-lbl">Days</div></div>
+          <div class="time-block"><div class="time-val" id="hours">00</div><div class="time-lbl">Hours</div></div>
+          <div class="time-block"><div class="time-val" id="mins">00</div><div class="time-lbl">Mins</div></div>
+          <div class="time-block"><div class="time-val" id="secs">00</div><div class="time-lbl">Secs</div></div>
         </div>
       </div>
 
@@ -268,12 +247,11 @@
           Need help? Email billing@brianondieki.com
         </a>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- TOTAL SHUTDOWN SCREEN (Appears when timer hits zero) -->
+<!-- TOTAL SHUTDOWN SCREEN -->
 <div class="shutdown-screen" id="shutdownScreen">
   <svg class="shutdown-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -305,9 +283,18 @@
     });
   }
 
-  // --- COUNTDOWN LOGIC ---
-  // Starts at 30 minutes when the page loads.
-  const deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; 
+  // --- PERSISTENT COUNTDOWN LOGIC ---
+  // Check if a deadline already exists in the browser's memory
+  let deadline = localStorage.getItem('invoice_147_deadline');
+
+  // If it doesn't exist, set it to 30 minutes from now and save it
+  if (!deadline) {
+    deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; 
+    localStorage.setItem('invoice_147_deadline', deadline);
+  } else {
+    // localStorage saves everything as text, so we must convert it back to a number
+    deadline = parseInt(deadline, 10);
+  }
   
   function updateCountdown() {
     const now = new Date().getTime();
@@ -315,8 +302,7 @@
 
     if (distance < 0) {
       // --- TOTAL SHUTDOWN TRIGGERED ---
-      
-      // Hide the main portal and show the full shutdown screen
+      // Hide main portal and show the full shutdown screen
       document.getElementById('mainPortal').style.display = 'none';
       document.getElementById('shutdownScreen').classList.add('active');
       
@@ -336,7 +322,6 @@
     document.getElementById('mins').innerText = String(mins).padStart(2, '0');
     document.getElementById('secs').innerText = String(secs).padStart(2, '0');
 
-    // Make it urgent (red) since it's under 1 day
     if (days < 1) {
       document.getElementById('countdownCard').classList.add('urgent');
       document.getElementById('countdownTitle').innerText = "Urgent: Due in 30 Minutes";
