@@ -1,429 +1,513 @@
-### Complete Invoice, Payment Enforcement and System Recovery Website
-
-The website will be a complete billing, payment verification, subscription enforcement and recovery platform for your business.
-
-Its main purpose is to ensure customers pay their invoices on time, provide a clear payment process, automatically suspend access to your service when the deadline expires, and offer a controlled recovery process.
-
-The system will use your selected colours: deep black, yellow, green and red.
-
-### 1\. Website identity and design
-
-### BRIAN ONDIEKI GICHANA
-
-BILLING SYSTEM
-
-### INVOICE & PAYMENT PORTAL
-
-Secure billing • Payment verification • Subscription management • System recovery
-
-PAYMENT STATUS
-
-### PENDING
-
-SERVICE STATUS
-
-### ACTIVE
-
-A preview of the proposed visual identity, not a live payment page.
-
-### Colour meanings
-
-| Colour     | Purpose                                            |
-| ---------- | -------------------------------------------------- |
-| Deep black | Main background                                    |
-| Charcoal   | Cards and panels                                   |
-| Yellow     | Payment actions and recovery                       |
-| Green      | Verified payments and active services              |
-| Red        | Overdue invoices, expired countdown and suspension |
-| White      | Main text                                          |
-
-### 2\. Customer invoice page
-
-Every customer receives a unique invoice link.
-
-For example:
-
-`yourdomain.com/invoice/INV-2026-0147`
-
-The invoice page displays:
-
-* Business name: BRIAN ONDIEKI GICHANA
-
-* Invoice number
-
-* Customer information
-
-* Service or product description
-
-* Invoice amount
-
-* Amount paid
-
-* Outstanding balance
-
-* Payment deadline
-
-* Payment instructions
-
-* Payment reference
-
-* Countdown timer
-
-* Current service status
-
-* Recovery System button
-
-Example invoice:
-
-INVOICE
-
-UNPAID
-
-### INV-2026-0147
-
-Issued by BRIAN ONDIEKI GICHANA
-
-Invoice amount
-
-KSh 8,500
-
-Amount paid
-
-KSh 0
-
-Outstanding balance
-
-### KSh 8,500
-
-PAYMENT DEADLINE
-
-25 November 2026
-
-Illustrative invoice details.
-
-### 3\. Payment system
-
-The payment section will explain exactly how the customer should pay.
-
-### PAYMENT DETAILS
-
-BUSINESS TILL NUMBER
-
-### 1797433
-
-BRIAN ONDIEKI GICHANA
-
-Payment QR code
-
-The actual verified payment QR image will be displayed once supplied. The system must not generate a fake QR code.
-
-Payment features:
-
-* Copy Till number.
-
-* Copy invoice reference.
-
-* Display payment instructions.
-
-* Print or download invoice PDF.
-
-* Submit transaction reference for verification.
-
-* View payment status.
-
-Payment verification must be connected to a genuine payment provider or performed by an authorized administrator. A customer uploading a screenshot does not automatically make a payment verified.
-
-### 4\. Countdown and deadline enforcement
-
-The countdown is connected to the invoice deadline.
-
-### PAYMENT COUNTDOWN
-
-### 02
-
-DAYS
-
-### 08
-
-HOURS
-
-### 35
-
-MINUTES
-
-Payment window active
-
-Illustrative countdown only.
-
-Countdown behaviour:
-
-* Green: sufficient payment time remains.
-
-* Yellow: deadline approaching.
-
-* Red: deadline reached or passed.
-
-* Zero-day grace period: enforcement begins immediately when the deadline expires.
-
-The server, not the customer's browser, determines whether the invoice deadline has passed.
-
-### 5\. Recovery System before expiry
-
-Before the deadline, the customer can select RECOVERY SYSTEM.
-
-A popup explains the additional recovery fee of KSh 10,000.
-
-It clearly explains that this is an additional charge and does not clear the original invoice.
-
-For example:
-
-| Description             | Amount     |
-| ----------------------- | ---------- |
-| Original invoice        | KSh 8,500  |
-| Additional recovery fee | KSh 10,000 |
-| Total required          | KSh 18,500 |
-
-The customer sees the payment instructions, business Till number and recovery reference.
-
-The customer must be informed that paying the recovery fee alone does not settle the invoice or guarantee restoration.
-
-### 6\. What happens when the countdown expires?
-
-ENFORCEMENT ACTIVE
-
-### SYSTEM SHUTDOWN
-
-### SERVICE SUSPENDED
-
-Your subscription has been suspended because the invoice payment deadline has expired.
-
-Outstanding invoice
-
-KSh 8,500
-
-Recovery fee
-
-KSh 10,000
-
-Total restoration amount
-
-### KSh 18,500
-
-Recovery is available
-
-Settle the required amounts and wait for payment verification to restore your subscription.
-
-This shutdown applies only to the specific online service or subscription you control. It does not shut down a customer's phone, computer, operating system or unrelated applications.
-
-The customer must still be able to open the invoice, access payment instructions and contact support. Customer data is preserved.
-
-### 7\. Payment verification and restoration
-
-This is one of the most important parts of the platform.
-
-There will be two independent payment records.
-
-| Payment          | Reference     | Amount     |
-| ---------------- | ------------- | ---------- |
-| Original invoice | INV-2026-0147 | KSh 8,500  |
-| Recovery payment | REC-2026-0147 | KSh 10,000 |
-
-Each payment follows its own verification process.
-
-* Customer makes payment
-
-    Customer pays using the provided Till number and correct reference.
-
-* Payment evidence received
-
-    A verified provider notification or transaction reference is received.
-
-* Verification
-
-    The backend checks the transaction, amount, reference, payment destination and duplicate status.
-
-* Administrator review if necessary
-
-    Unconfirmed transactions are marked pending until checked by an authorized administrator.
-
-* Both payments confirmed
-
-    The original invoice and additional recovery fee must each be verified.
-
-* Automatic restoration
-
-    The subscription entitlement is restored and an invoice/payment confirmation is recorded.
-
-### RESTORATION CONDITIONS
-
-Original invoice verified
-
-Recovery fee verified
-
-No duplicate or disputed transaction
-
-Subscription
-
-ACTIVE AFTER VERIFICATION
-
-### 8\. Administrator dashboard
-
-You will have a private dashboard to control the entire platform.
-
-### ADMIN CONTROL PANEL
-
-### --
-
-TOTAL INVOICES
-
-### --
-
-PAID INVOICES
-
-### --
-
-SUSPENDED SERVICES
-
-### --
-
-PENDING RECOVERY
-
-Dashboard sections
-
-* Overview and financial reports
-
-* Create and manage invoices
-
-* Customer management
-
-* Payment verification
-
-* Recovery management
-
-* Subscription enforcement
-
-* Suspended and restored services
-
-* PDF invoice generation
-
-* Payment notifications
-
-* Audit logs and administrator activity
-
-* Business settings
-
-### 9\. Customer management and service enforcement
-
-Each customer will have an account or customer record with:
-
-* Customer ID.
-
-* Name and contact information.
-
-* Service or subscription ID.
-
-* Invoice history.
-
-* Payment history.
-
-* Deadline and enforcement status.
-
-* Recovery requests.
-
-* Suspension and restoration history.
-
-The system will enforce access through your own application's backend. For example, your application checks whether a customer's subscription is active before granting access to paid features.
-
-It will never delete customer records simply because an invoice is overdue.
-
-### 10\. Database and technical architecture
-
-I recommend the following structure:
-
-| Component            | Technology                                    |
-| -------------------- | --------------------------------------------- |
-| Frontend             | HTML, CSS, JavaScript                         |
-| Backend              | Python Flask                                  |
-| Database             | PostgreSQL                                    |
-| PDF invoices         | Python PDF generation                         |
-| Payment verification | Verified provider integration or admin review |
-| Authentication       | Secure admin login                            |
-| Hosting              | Production web hosting with HTTPS             |
-| Enforcement          | Server-side subscription checks               |
-| Notifications        | Email and optional SMS integration            |
-
-Important database records:
-
-* Customers
-
-* Services
-
-* Invoices
-
-* Invoice items
-
-* Payments
-
-* Recovery requests
-
-* Recovery payments
-
-* Subscription status
-
-* Enforcement events
-
-* Admin users
-
-* Audit logs
-
-The application should use a persistent database, secure administrator access, encrypted connections, backups, and authenticated payment notifications.
-
-### 11\. Full customer journey
-
-* Invoice created
-
-    Administrator creates an invoice and assigns a customer and deadline.
-
-* Customer receives invoice link
-
-    Customer opens the payment portal.
-
-* Payment period begins
-
-    Countdown is displayed and the recovery option is available.
-
-* Payment deadline expires
-
-    If the invoice remains unpaid, the covered service is suspended immediately.
-
-* Recovery payment requested
-
-    Customer sees the KSh 10,000 additional fee and outstanding invoice separately.
-
-* Payment verification
-
-    Both payments are independently checked.
-
-* Service restored
-
-    Backend reactivates the subscription after all required payments are verified.
-
-* Confirmation issued
-
-    Customer receives confirmation and updated payment records.
-
-### 12\. Final project scope
-
-The complete platform will have four main parts:
-
-* Customer portal: Invoices, payment instructions, countdown, recovery and payment status.
-
-* Payment engine: Payment records, verification, duplicate protection and receipts.
-
-* Enforcement engine: Deadline monitoring, immediate suspension and subscription restoration.
-
-* Administrator portal: Invoice creation, customer management, financial reports and recovery controls.
-
-One important business-policy point: Because the KSh 10,000 is an additional fee, it should be explicitly disclosed and agreed to by the customer before they accept recovery. The system should also allow you to configure whether an unpaid invoice can be settled normally without the recovery fee, or whether the additional fee is required under a clearly agreed recovery policy.
-
-This is the full specification I would use to build the actual website, rather than just a visual payment reminder.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Portal | BRIAN ONDIEKI GICHANA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #09090b;
+    --panel: #18181b;
+    --border: #27272a;
+    --text: #f8fafc;
+    --text-muted: #a1a1aa;
+    --yellow: #eab308;
+    --yellow-bg: rgba(234, 179, 8, 0.15);
+    --green: #22c55e;
+    --green-bg: rgba(34, 197, 94, 0.15);
+    --red: #ef4444;
+    --red-bg: rgba(239, 68, 68, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 24px 16px;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+  }
+
+  .portal-container {
+    width: 100%;
+    max-width: 860px;
+  }
+
+  /* --- Header --- */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .brand h1 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .brand p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .status-pills {
+    display: flex;
+    gap: 12px;
+  }
+
+  .pill {
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pill.pending { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow); }
+  .pill.active { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+  .pill.suspended { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+
+  .pill .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: currentColor;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+
+  /* --- Main Grid --- */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .grid-layout { grid-template-columns: 1fr; }
+  }
+
+  /* --- Cards --- */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* --- Invoice Details --- */
+  .invoice-header-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .invoice-header-row div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .invoice-header-row .label { font-size: 12px; color: var(--text-muted); }
+  .invoice-header-row .value { font-size: 16px; font-weight: 600; }
+
+  .balance-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .balance-box .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .balance-box .amount { font-size: 32px; font-weight: 800; color: var(--yellow); line-height: 1; margin-top: 4px; }
+
+  /* --- Table --- */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text-muted); font-weight: 500; }
+  td { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  th.num, td.num { text-align: right; }
+  .total-row td { border-bottom: none; font-weight: 700; font-size: 16px; padding-top: 20px; }
+
+  /* --- Countdown --- */
+  .countdown-card {
+    background: var(--panel);
+    border: 1px solid var(--yellow);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+
+  .countdown-card.urgent {
+    border-color: var(--red);
+    background: var(--red-bg);
+  }
+
+  .countdown-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .time-block { text-align: center; }
+  .time-val { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .time-lbl { font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; letter-spacing: 1px; }
+
+  /* --- Payment Section --- */
+  .pay-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pay-row:last-child { border-bottom: none; }
+  
+  .pay-row .label { font-size: 13px; color: var(--text-muted); }
+  .pay-row .val { font-size: 18px; font-weight: 700; }
+  .pay-row .val.ref { font-size: 15px; }
+
+  .btn-copy {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-copy:hover { background: var(--border); }
+
+  .qr-placeholder {
+    width: 120px;
+    height: 120px;
+    background: var(--bg);
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 16px auto;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .btn-primary {
+    background: var(--yellow);
+    color: #000;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: var(--border); }
+
+  /* --- Overdue Modal (Hidden by default) --- */
+  .overdue-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .overdue-modal.active { display: flex; }
+  
+  .modal-content {
+    background: var(--panel);
+    border: 2px solid var(--red);
+    border-radius: 16px;
+    max-width: 480px;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+  }
+  .modal-content h2 { color: var(--red); margin: 0 0 16px; font-size: 24px; text-transform: uppercase; }
+  .modal-content p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<div class="portal-container">
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <h1>BRIAN ONDIEKI GICHANA</h1>
+      <p>Invoice & Payment Portal</p>
+    </div>
+    <div class="status-pills">
+      <div class="pill pending" id="paymentStatusPill">
+        <span class="dot"></span> Payment Pending
+      </div>
+      <div class="pill active" id="serviceStatusPill">
+        <span class="dot"></span> Service Active
+      </div>
+    </div>
+  </header>
+
+  <div class="grid-layout">
+    
+    <!-- Left Column: Invoice Details -->
+    <div class="left-col">
+      <div class="card">
+        <h2 class="card-title">Invoice Details</h2>
+        
+        <div class="invoice-header-row">
+          <div>
+            <span class="label">Invoice No</span>
+            <span class="value">INV-2026-0147</span>
+          </div>
+          <div>
+            <span class="label">Issue Date</span>
+            <span class="value">1 Nov 2026</span>
+          </div>
+          <div>
+            <span class="label">Due Date</span>
+            <span class="value" id="displayDueDate">25 Nov 2026</span>
+          </div>
+        </div>
+
+        <div class="balance-box">
+          <div>
+            <div class="label">Outstanding Balance</div>
+            <div class="amount">KSh 8,500.00</div>
+          </div>
+          <div style="text-align: right; font-size: 13px; color: var(--text-muted);">
+            Amount Paid: KSh 0.00
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th class="num">Qty</th>
+              <th class="num">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monthly Subscription – Nov 2026</td>
+              <td class="num">1</td>
+              <td class="num">8,500.00</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2">Total Due</td>
+              <td class="num" style="color: var(--yellow);">KSh 8,500.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Right Column: Payment & Countdown -->
+    <div class="right-col">
+      
+      <!-- Countdown -->
+      <div class="countdown-card" id="countdownCard">
+        <div class="countdown-title" id="countdownTitle">Payment Window Closes In</div>
+        <div class="countdown-timer">
+          <div class="time-block">
+            <div class="time-val" id="days">00</div>
+            <div class="time-lbl">Days</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val" id="hours">00</div>
+            <div class="time-lbl">Hours</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val" id="mins">00</div>
+            <div class="time-lbl">Mins</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val" id="secs">00</div>
+            <div class="time-lbl">Secs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Details -->
+      <div class="card">
+        <h2 class="card-title">Make Payment</h2>
+        
+        <div class="qr-placeholder">
+          <!-- Replace with actual QR code image -->
+          [ Insert Verified QR Code ]
+        </div>
+
+        <div class="pay-row">
+          <span class="label">Buy Goods Till</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="val" id="tillNumber">1797433</span>
+            <button class="btn-copy" onclick="copyText('tillNumber')">Copy</button>
+          </div>
+        </div>
+
+        <div class="pay-row">
+          <span class="label">Account / Reference</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="val ref" id="invoiceRef">INV-2026-0147</span>
+            <button class="btn-copy" onclick="copyText('invoiceRef')">Copy</button>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn-primary" onclick="alert('Payment verification requires an admin. Please ensure you have paid before submitting.')">I Have Paid (Submit Ref)</button>
+          <button class="btn-secondary" onclick="window.print()">Print / Save Invoice</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Overdue Modal (Simulates Backend Enforcement) -->
+<div class="overdue-modal" id="overdueModal">
+  <div class="modal-content">
+    <h2>System Suspended</h2>
+    <p>Your payment deadline has expired. Access to the subscription portal has been restricted. Please settle the outstanding invoice of KSh 8,500 to restore access.</p>
+    <a href="mailto:support@example.com" class="btn-primary" style="display: block; margin-bottom: 12px;">Contact Billing Support</a>
+  </div>
+</div>
+
+<script>
+  // --- 1. Copy Function ---
+  function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Copied to clipboard: ' + text);
+    });
+  }
+
+  // --- 2. Countdown Logic ---
+  // Set to 11:59:59 PM EAT (UTC+3) on Nov 25, 2026
+  const deadline = new Date('2026-11-25T23:59:59+03:00').getTime();
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = deadline - now;
+
+    if (distance < 0) {
+      // Handle Expired State (Simulating Backend Enforcement)
+      document.getElementById('days').innerText = "00";
+      document.getElementById('hours').innerText = "00";
+      document.getElementById('mins').innerText = "00";
+      document.getElementById('secs').innerText = "00";
+      
+      document.getElementById('countdownTitle').innerText = "Deadline Expired";
+      document.getElementById('countdownCard').classList.add('urgent');
+      
+      // Update status pills
+      const svcPill = document.getElementById('serviceStatusPill');
+      svcPill.className = 'pill suspended';
+      svcPill.innerHTML = '<span class="dot"></span> Service Suspended';
+      
+      // Show modal
+      document.getElementById('overdueModal').classList.add('active');
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerText = String(days).padStart(2, '0');
+    document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+    document.getElementById('mins').innerText = String(mins).padStart(2, '0');
+    document.getElementById('secs').innerText = String(secs).padStart(2, '0');
+
+    // Styling logic based on time remaining
+    if (days < 1) {
+      document.getElementById('countdownCard').classList.add('urgent');
+      document.getElementById('countdownTitle').innerText = "Urgent: Due Today";
+    } else if (days < 7) {
+      document.getElementById('countdownTitle').innerText = "Deadline Approaching";
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
