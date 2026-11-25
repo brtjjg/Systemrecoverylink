@@ -442,7 +442,7 @@
     <a href="mailto:support@example.com" class="btn-primary" style="display: block; margin-bottom: 12px;">Contact Billing Support</a>
   </div>
 </div>
-
+  
 <script>
   function copyText(elementId) {
     const text = document.getElementById(elementId).innerText;
@@ -451,31 +451,71 @@
     });
   }
 
-  // --- COUNTDOWN LOGIC ---
-  // This sets the deadline to exactly 30 minutes from when the page is loaded
-  const deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; // +1000ms so it starts at exactly 30:00
+  // --- COUNTDOWN LOGIC (30 Minutes) ---
+  const deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; 
   
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = deadline - now;
 
     if (distance < 0) {
+      // --- WHAT HAPPENS AFTER COUNTDOWN IS OVER ---
+      
+      // 1. Stop the timer at zero
       document.getElementById('days').innerText = "00";
       document.getElementById('hours').innerText = "00";
       document.getElementById('mins').innerText = "00";
       document.getElementById('secs').innerText = "00";
       
-      document.getElementById('countdownTitle').innerText = "Deadline Expired";
-      document.getElementById('countdownCard').classList.add('urgent');
+      // 2. Change countdown box to expired state
+      const countdownCard = document.getElementById('countdownCard');
+      countdownCard.classList.add('urgent');
+      countdownCard.innerHTML = `
+        <div class="countdown-title" style="color: var(--red); font-size: 16px;">DEADLINE EXPIRED</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Payment window is closed.</div>
+      `;
       
+      // 3. Change the top status pill to Suspended
       const svcPill = document.getElementById('serviceStatusPill');
       svcPill.className = 'pill suspended';
       svcPill.innerHTML = '<span class="dot"></span> Service Suspended';
       
-      document.getElementById('overdueModal').classList.add('active');
+      // 4. Blur the invoice details so it can't be easily read/screenshotted
+      const leftCol = document.querySelector('.left-col');
+      leftCol.style.filter = 'blur(4px)';
+      leftCol.style.opacity = '0.3';
+      leftCol.style.pointerEvents = 'none';
+      
+      // 5. Replace the payment section with a Lock Warning
+      const paymentCard = document.querySelector('.right-col .card:nth-child(2)');
+      paymentCard.innerHTML = `
+        <div style="text-align: center; padding: 20px 0;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <h2 style="color: var(--red); font-size: 20px; margin: 0 0 12px;">ACCESS LOCKED</h2>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
+            Your subscription is now suspended. To restore access, clear the outstanding balance of <strong>KSh 8,500</strong> immediately.
+          </p>
+          <div class="pay-row" style="border-top: 1px solid var(--border); border-bottom: none; text-align: left;">
+            <span class="label">Pay to Till</span>
+            <span class="val">1797433</span>
+          </div>
+          <div class="pay-row" style="border-bottom: none; text-align: left; padding-top: 0;">
+            <span class="label">Account Ref</span>
+            <span class="val ref">INV-2026-0147</span>
+          </div>
+          <a href="mailto:support@example.com" class="btn-primary" style="display: block; margin-top: 20px; background: var(--red); color: white;">Contact Support</a>
+        </div>
+      `;
+      
+      // 6. Stop the interval from running again
+      clearInterval(timerInterval);
       return;
     }
 
+    // --- WHILE COUNTDOWN IS RUNNING ---
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -486,7 +526,6 @@
     document.getElementById('mins').innerText = String(mins).padStart(2, '0');
     document.getElementById('secs').innerText = String(secs).padStart(2, '0');
 
-    // Since it's under 1 day, it will always apply the urgent red styling
     if (days < 1) {
       document.getElementById('countdownCard').classList.add('urgent');
       document.getElementById('countdownTitle').innerText = "Urgent: Due in 30 Minutes";
@@ -494,7 +533,7 @@
   }
 
   updateCountdown();
-  setInterval(updateCountdown, 1000);
+  const timerInterval = setInterval(updateCountdown, 1000);
 </script>
 
 </body>
