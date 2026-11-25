@@ -278,7 +278,7 @@
   }
   .btn-secondary:hover { background: var(--border); }
 
-  /* --- Overdue Modal (Hidden by default) --- */
+  /* --- Overdue Modal --- */
   .overdue-modal {
     display: none;
     position: fixed;
@@ -308,7 +308,6 @@
 
 <div class="portal-container">
   
-  <!-- Header -->
   <header class="header">
     <div class="brand">
       <h1>BRIAN ONDIEKI GICHANA</h1>
@@ -326,7 +325,6 @@
 
   <div class="grid-layout">
     
-    <!-- Left Column: Invoice Details -->
     <div class="left-col">
       <div class="card">
         <h2 class="card-title">Invoice Details</h2>
@@ -342,7 +340,7 @@
           </div>
           <div>
             <span class="label">Due Date</span>
-            <span class="value" id="displayDueDate">25 Nov 2026</span>
+            <span class="value" id="displayDueDate">Today</span>
           </div>
         </div>
 
@@ -379,10 +377,8 @@
       </div>
     </div>
 
-    <!-- Right Column: Payment & Countdown -->
     <div class="right-col">
       
-      <!-- Countdown -->
       <div class="countdown-card" id="countdownCard">
         <div class="countdown-title" id="countdownTitle">Payment Window Closes In</div>
         <div class="countdown-timer">
@@ -405,13 +401,11 @@
         </div>
       </div>
 
-      <!-- Payment Details -->
       <div class="card">
         <h2 class="card-title">Make Payment</h2>
         
         <div class="qr-placeholder">
-          <!-- Replace with actual QR code image -->
-          [ Insert Verified QR Code ]
+          [ Insert QR Code ]
         </div>
 
         <div class="pay-row">
@@ -440,7 +434,7 @@
   </div>
 </div>
 
-<!-- Overdue Modal (Simulates Backend Enforcement) -->
+<!-- Overdue Modal -->
 <div class="overdue-modal" id="overdueModal">
   <div class="modal-content">
     <h2>System Suspended</h2>
@@ -450,7 +444,6 @@
 </div>
 
 <script>
-  // --- 1. Copy Function ---
   function copyText(elementId) {
     const text = document.getElementById(elementId).innerText;
     navigator.clipboard.writeText(text).then(() => {
@@ -458,16 +451,15 @@
     });
   }
 
-  // --- 2. Countdown Logic ---
-  // Set to 11:59:59 PM EAT (UTC+3) on Nov 25, 2026
-  const deadline = new Date('2026-11-25T23:59:59+03:00').getTime();
+  // --- COUNTDOWN LOGIC ---
+  // This sets the deadline to exactly 30 minutes from when the page is loaded
+  const deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; // +1000ms so it starts at exactly 30:00
   
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = deadline - now;
 
     if (distance < 0) {
-      // Handle Expired State (Simulating Backend Enforcement)
       document.getElementById('days').innerText = "00";
       document.getElementById('hours').innerText = "00";
       document.getElementById('mins').innerText = "00";
@@ -476,12 +468,10 @@
       document.getElementById('countdownTitle').innerText = "Deadline Expired";
       document.getElementById('countdownCard').classList.add('urgent');
       
-      // Update status pills
       const svcPill = document.getElementById('serviceStatusPill');
       svcPill.className = 'pill suspended';
       svcPill.innerHTML = '<span class="dot"></span> Service Suspended';
       
-      // Show modal
       document.getElementById('overdueModal').classList.add('active');
       return;
     }
@@ -496,12 +486,10 @@
     document.getElementById('mins').innerText = String(mins).padStart(2, '0');
     document.getElementById('secs').innerText = String(secs).padStart(2, '0');
 
-    // Styling logic based on time remaining
+    // Since it's under 1 day, it will always apply the urgent red styling
     if (days < 1) {
       document.getElementById('countdownCard').classList.add('urgent');
-      document.getElementById('countdownTitle').innerText = "Urgent: Due Today";
-    } else if (days < 7) {
-      document.getElementById('countdownTitle').innerText = "Deadline Approaching";
+      document.getElementById('countdownTitle').innerText = "Urgent: Due in 30 Minutes";
     }
   }
 
