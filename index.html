@@ -33,127 +33,49 @@
     justify-content: center;
   }
 
-  .portal-container {
-    width: 100%;
-    max-width: 860px;
-  }
+  .portal-container { width: 100%; max-width: 860px; }
 
   /* --- Header --- */
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
   }
 
-  .brand h1 {
-    margin: 0 0 4px;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 1px;
+  .brand h1 { margin: 0 0 4px; font-size: 18px; font-weight: 800; letter-spacing: 1px; }
+  .brand p { margin: 0; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
+  
+  .etims-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-bg); color: var(--green);
+    padding: 4px 10px; border-radius: 4px; border: 1px solid var(--green);
+    font-size: 11px; font-weight: 700; text-transform: uppercase; margin-top: 8px;
   }
 
-  .brand p {
-    margin: 0;
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .status-pills {
-    display: flex;
-    gap: 12px;
-  }
-
+  .status-pills { display: flex; gap: 12px; }
   .pill {
-    padding: 6px 14px;
-    border-radius: 99px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
   }
-
   .pill.pending { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow); }
   .pill.active { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
-  .pill.suspended { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-  .pill .dot {
-    width: 8px; height: 8px; border-radius: 50%; background: currentColor;
-    animation: pulse 2s infinite;
-  }
+  /* --- Grid & Cards --- */
+  .grid-layout { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
+  @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
 
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
-  }
-
-  /* --- Main Grid --- */
-  .grid-layout {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 24px;
-  }
-
-  @media (max-width: 768px) {
-    .grid-layout { grid-template-columns: 1fr; }
-  }
-
-  /* --- Cards --- */
-  .card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-  }
-
-  .card-title {
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin: 0 0 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  .card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
   /* --- Invoice Details --- */
-  .invoice-header-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
-  }
-
-  .invoice-header-row div {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
+  .invoice-header-row { display: flex; justify-content: space-between; margin-bottom: 24px; }
+  .invoice-header-row div { display: flex; flex-direction: column; gap: 4px; }
   .invoice-header-row .label { font-size: 12px; color: var(--text-muted); }
   .invoice-header-row .value { font-size: 16px; font-weight: 600; }
 
-  .balance-box {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-
+  .balance-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
   .balance-box .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
   .balance-box .amount { font-size: 32px; font-weight: 800; color: var(--yellow); line-height: 1; margin-top: 4px; }
 
@@ -166,158 +88,76 @@
 
   /* --- Countdown --- */
   .countdown-card {
-    background: var(--panel);
-    border: 1px solid var(--yellow);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    margin-bottom: 24px;
-    transition: all 0.3s;
+    background: var(--panel); border: 1px solid var(--yellow);
+    border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 24px; transition: all 0.3s;
   }
-
-  .countdown-card.urgent {
-    border-color: var(--red);
-    background: var(--red-bg);
-  }
-
-  .countdown-title {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
-
-  .countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-
+  .countdown-card.urgent { border-color: var(--red); background: var(--red-bg); }
+  .countdown-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px; font-weight: 600; }
+  .countdown-timer { display: flex; justify-content: center; gap: 16px; }
   .time-block { text-align: center; }
   .time-val { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; }
   .time-lbl { font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; letter-spacing: 1px; }
 
   /* --- Payment Section --- */
-  .pay-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .pay-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
   .pay-row:last-child { border-bottom: none; }
-  
   .pay-row .label { font-size: 13px; color: var(--text-muted); }
   .pay-row .val { font-size: 18px; font-weight: 700; }
   .pay-row .val.ref { font-size: 15px; }
 
-  .btn-copy {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .btn-copy { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; }
   .btn-copy:hover { background: var(--border); }
 
-  .qr-placeholder {
-    width: 120px;
-    height: 120px;
-    background: var(--bg);
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: var(--text-muted);
-    text-align: center;
-    margin: 16px auto;
-  }
-
-  .action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .btn-primary {
-    background: var(--yellow);
-    color: #000;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
+  .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .btn-primary { background: var(--yellow); color: #000; border: none; padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; }
   .btn-primary:hover { opacity: 0.9; }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; }
   .btn-secondary:hover { background: var(--border); }
 
-  /* --- Overdue Modal --- */
-  .overdue-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+  .support-link { display: block; text-align: center; font-size: 13px; color: var(--text-muted); text-decoration: none; margin-top: 16px; }
+  .support-link:hover { color: var(--yellow); }
+
+  /* --- TOTAL SHUTDOWN SCREEN (Hidden by default) --- */
+  .shutdown-screen {
+    display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #000; z-index: 9999; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 24px;
   }
-  .overdue-modal.active { display: flex; }
+  .shutdown-screen.active { display: flex; }
   
-  .modal-content {
-    background: var(--panel);
-    border: 2px solid var(--red);
-    border-radius: 16px;
-    max-width: 480px;
-    width: 100%;
-    padding: 32px;
-    text-align: center;
-  }
-  .modal-content h2 { color: var(--red); margin: 0 0 16px; font-size: 24px; text-transform: uppercase; }
-  .modal-content p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+  .shutdown-icon { color: var(--red); margin-bottom: 24px; animation: pulse-red 2s infinite; }
+  @keyframes pulse-red { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+  
+  .shutdown-screen h1 { color: var(--red); font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 16px; }
+  .shutdown-screen p { color: var(--text-muted); font-size: 16px; max-width: 500px; margin-bottom: 32px; line-height: 1.6; }
+  
+  .shutdown-box { background: var(--panel); border: 1px solid var(--red); border-radius: 12px; padding: 24px; max-width: 400px; width: 100%; margin-bottom: 24px; }
+  .shutdown-box .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
+  .shutdown-box .amount { font-size: 32px; font-weight: 800; color: var(--text); margin: 8px 0; }
+  
+  .shutdown-contact { color: var(--text-muted); font-size: 14px; }
+  .shutdown-contact a { color: var(--yellow); text-decoration: none; font-weight: 600; }
 </style>
 </head>
 <body>
 
-<div class="portal-container">
+<!-- MAIN PORTAL (Visible until countdown ends) -->
+<div class="portal-container" id="mainPortal">
   
   <header class="header">
     <div class="brand">
       <h1>BRIAN ONDIEKI GICHANA</h1>
       <p>Invoice & Payment Portal</p>
+      <div class="etims-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        KRA eTIMS Compliant
+      </div>
     </div>
     <div class="status-pills">
-      <div class="pill pending" id="paymentStatusPill">
+      <div class="pill pending">
         <span class="dot"></span> Payment Pending
       </div>
-      <div class="pill active" id="serviceStatusPill">
+      <div class="pill active">
         <span class="dot"></span> Service Active
       </div>
     </div>
@@ -340,7 +180,7 @@
           </div>
           <div>
             <span class="label">Due Date</span>
-            <span class="value" id="displayDueDate">Today</span>
+            <span class="value">Today</span>
           </div>
         </div>
 
@@ -348,9 +188,6 @@
           <div>
             <div class="label">Outstanding Balance</div>
             <div class="amount">KSh 8,500.00</div>
-          </div>
-          <div style="text-align: right; font-size: 13px; color: var(--text-muted);">
-            Amount Paid: KSh 0.00
           </div>
         </div>
 
@@ -402,11 +239,10 @@
       </div>
 
       <div class="card">
-        <h2 class="card-title">Make Payment</h2>
-        
-        <div class="qr-placeholder">
-          [ Insert QR Code ]
-        </div>
+        <h2 class="card-title">Recovery / Pay Now</h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: -10px; margin-bottom: 16px;">
+          Avoid system shutdown by clearing your balance before the timer ends.
+        </p>
 
         <div class="pay-row">
           <span class="label">Buy Goods Till</span>
@@ -425,24 +261,42 @@
         </div>
 
         <div class="action-buttons">
-          <button class="btn-primary" onclick="alert('Payment verification requires an admin. Please ensure you have paid before submitting.')">I Have Paid (Submit Ref)</button>
-          <button class="btn-secondary" onclick="window.print()">Print / Save Invoice</button>
+          <button class="btn-primary" onclick="alert('Please ensure you have paid before submitting.')">I Have Paid (Submit Ref)</button>
         </div>
+        
+        <a href="mailto:billing@brianondieki.com?subject=Invoice%20INV-2026-0147%20Payment" class="support-link">
+          Need help? Email billing@brianondieki.com
+        </a>
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- Overdue Modal -->
-<div class="overdue-modal" id="overdueModal">
-  <div class="modal-content">
-    <h2>System Suspended</h2>
-    <p>Your payment deadline has expired. Access to the subscription portal has been restricted. Please settle the outstanding invoice of KSh 8,500 to restore access.</p>
-    <a href="mailto:support@example.com" class="btn-primary" style="display: block; margin-bottom: 12px;">Contact Billing Support</a>
-  </div>
-</div>
+<!-- TOTAL SHUTDOWN SCREEN (Appears when timer hits zero) -->
+<div class="shutdown-screen" id="shutdownScreen">
+  <svg class="shutdown-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+  </svg>
+  <h1>System Shutdown</h1>
+  <p>Your payment deadline has expired. This service has been suspended. To restore access, clear the outstanding balance immediately.</p>
   
+  <div class="shutdown-box">
+    <div class="label">Amount Required</div>
+    <div class="amount">KSh 8,500.00</div>
+    <div class="label" style="margin-top: 12px;">Till Number</div>
+    <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">1797433</div>
+    <div class="label">Reference</div>
+    <div style="font-size: 16px; font-weight: 600; color: var(--yellow);">INV-2026-0147</div>
+  </div>
+  
+  <p class="shutdown-contact">
+    Once payment is complete, contact support to restore access:<br><br>
+    <a href="mailto:billing@brianondieki.com">billing@brianondieki.com</a>
+  </p>
+</div>
+
 <script>
   function copyText(elementId) {
     const text = document.getElementById(elementId).innerText;
@@ -451,7 +305,8 @@
     });
   }
 
-  // --- COUNTDOWN LOGIC (30 Minutes) ---
+  // --- COUNTDOWN LOGIC ---
+  // Starts at 30 minutes when the page loads.
   const deadline = new Date().getTime() + (30 * 60 * 1000) + 1000; 
   
   function updateCountdown() {
@@ -459,58 +314,13 @@
     const distance = deadline - now;
 
     if (distance < 0) {
-      // --- WHAT HAPPENS AFTER COUNTDOWN IS OVER ---
+      // --- TOTAL SHUTDOWN TRIGGERED ---
       
-      // 1. Stop the timer at zero
-      document.getElementById('days').innerText = "00";
-      document.getElementById('hours').innerText = "00";
-      document.getElementById('mins').innerText = "00";
-      document.getElementById('secs').innerText = "00";
+      // Hide the main portal and show the full shutdown screen
+      document.getElementById('mainPortal').style.display = 'none';
+      document.getElementById('shutdownScreen').classList.add('active');
       
-      // 2. Change countdown box to expired state
-      const countdownCard = document.getElementById('countdownCard');
-      countdownCard.classList.add('urgent');
-      countdownCard.innerHTML = `
-        <div class="countdown-title" style="color: var(--red); font-size: 16px;">DEADLINE EXPIRED</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Payment window is closed.</div>
-      `;
-      
-      // 3. Change the top status pill to Suspended
-      const svcPill = document.getElementById('serviceStatusPill');
-      svcPill.className = 'pill suspended';
-      svcPill.innerHTML = '<span class="dot"></span> Service Suspended';
-      
-      // 4. Blur the invoice details
-      const leftCol = document.querySelector('.left-col');
-      leftCol.style.filter = 'blur(4px)';
-      leftCol.style.opacity = '0.3';
-      leftCol.style.pointerEvents = 'none';
-      
-      // 5. Replace the payment section with a Lock Warning
-      const paymentCard = document.querySelector('.right-col .card:nth-child(2)');
-      paymentCard.innerHTML = `
-        <div style="text-align: center; padding: 20px 0;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 16px;">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg>
-          <h2 style="color: var(--red); font-size: 20px; margin: 0 0 12px;">ACCESS LOCKED</h2>
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
-            Your subscription is now suspended. To restore access, clear the outstanding balance of <strong>KSh 8,500</strong> immediately.
-          </p>
-          <div class="pay-row" style="border-top: 1px solid var(--border); border-bottom: none; text-align: left;">
-            <span class="label">Pay to Till</span>
-            <span class="val">1797433</span>
-          </div>
-          <div class="pay-row" style="border-bottom: none; text-align: left; padding-top: 0;">
-            <span class="label">Account Ref</span>
-            <span class="val ref">INV-2026-0147</span>
-          </div>
-          <a href="mailto:support@example.com" class="btn-primary" style="display: block; margin-top: 20px; background: var(--red); color: white;">Contact Support</a>
-        </div>
-      `;
-      
-      // 6. Stop the interval from running again
+      // Stop the timer
       clearInterval(timerInterval);
       return;
     }
@@ -526,6 +336,7 @@
     document.getElementById('mins').innerText = String(mins).padStart(2, '0');
     document.getElementById('secs').innerText = String(secs).padStart(2, '0');
 
+    // Make it urgent (red) since it's under 1 day
     if (days < 1) {
       document.getElementById('countdownCard').classList.add('urgent');
       document.getElementById('countdownTitle').innerText = "Urgent: Due in 30 Minutes";
